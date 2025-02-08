@@ -7,7 +7,10 @@ import cookieparser from "cookie-parser";
 const PORT = Number(process.env.PORT) || 3000;
 console.log("Server will start on port:", PORT);
 
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://event-management-frontend-m7ct.vercel.app/",
+];
 
 const corsOptions = {
   origin: function (origin: any, callback: any) {
