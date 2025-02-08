@@ -9,7 +9,7 @@ console.log("Server will start on port:", PORT);
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://event-management-frontend-m7ct.vercel.app/",
+  "https://event-management-frontend-m7ct.vercel.app",
 ];
 
 const corsOptions = {
