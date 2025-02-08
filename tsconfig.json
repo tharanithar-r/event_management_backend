@@ -2,14 +2,15 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es6",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "types": ["node"],
-    "lib": ["esnext"]
+    "outDir": "./dist", // Output directory for compiled JS files
+    "rootDir": "./src", // Root directory of your TypeScript source code
+    "esModuleInterop": true, // Ensures compatibility with CommonJS modules
+    "skipLibCheck": true, // Skips checking of declaration files for faster compilation
+    "moduleResolution": "node", // Ensures proper resolution of modules, especially for Node.js
+    "types": ["node"], // Tells TypeScript to include Node.js type definitions
+    "lib": ["esnext"], // Includes modern JavaScript features
+    "strict": true // Enforces strict type checking (optional but recommended)
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts"], // Specifies which files to include in the compilation
+  "exclude": ["node_modules"] // Excludes the node_modules directory from the compilation
 }
