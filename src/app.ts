@@ -3,7 +3,6 @@ import express from "express";
 import cors from "cors";
 import rootRouter from "./routes/index";
 import cookieparser from "cookie-parser";
-import fs from "fs";
 
 const PORT = Number(process.env.PORT) || 3000;
 console.log("Server will start on port:", PORT);
