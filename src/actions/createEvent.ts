@@ -38,7 +38,7 @@ export const newEvent = async (data: EventInput) => {
         imageUrl: data.imageUrl,
         status: data.status || "UPCOMING",
         location: data.location,
-        creatorId: userid.id,
+        creatorId: userid?.id || "",
         maxAttendees: data.maxAttendees || 100,
         isPublic: data.isPublic ?? true,
         isCancelled: false,
