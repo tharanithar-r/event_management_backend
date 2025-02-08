@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  username      String    @unique
+  email         String    @unique
+  password      String
+  isGuest       Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  eventsCreated Event[]   @relation("EventCreator")
+  eventsAttending Event[] @relation("EventAttendees")
+}
+
+model Event {
+  id            String    @id @default(cuid())
+  title         String
+  description   String
+  date          DateTime
+  endDate       DateTime
+  category    String 
+  imageUrl      String?
+  status        EventStatus   @default(UPCOMING)
+  location      String?
+  creatorId     String
+  creator       User      @relation("EventCreator", fields: [creatorId], references: [id])
+  attendees     User[]    @relation("EventAttendees")
+  Category      Category  @relation(fields: [category], references: [categoryname])
+  maxAttendees  Int       @default(100)
+  isPublic      Boolean   @default(true)
+  isCancelled   Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Category{
+  categoryname String @id @unique
+  events Event[]
+}
+
+
+enum EventStatus {
+  DRAFT
+  UPCOMING
+  ONGOING
+  COMPLETED
+  CANCELLED
+}
