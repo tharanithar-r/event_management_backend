@@ -8,6 +8,7 @@ import {
   verifyJWT,
 } from "../helper";
 import { secretmanager } from "googleapis/build/src/apis/secretmanager";
+import path from "path";
 
 const prisma = new PrismaClient();
 
@@ -15,6 +16,7 @@ const setCookieOptions = {
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
   sameSite: "none",
+  path: "/",
   expires: new Date(new Date().setHours(23, 59, 59, 999)),
 };
 
