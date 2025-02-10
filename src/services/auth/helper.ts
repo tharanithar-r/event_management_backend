@@ -32,7 +32,7 @@ export const createJWT = (person: User) => {
 
   if ("username" in person) {
     id = person.username;
-    role = "kitchen";
+    role = "user";
   } else {
     throw new Error("Invalid person object");
   }
